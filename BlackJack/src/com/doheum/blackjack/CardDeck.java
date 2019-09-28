@@ -5,40 +5,15 @@ public class CardDeck {
 	
 	
 	public CardDeck() {
-		String shape = "스페이드";
-		String displayValue = "";
-		int calcValue = 0;
-		for(int i=0; i<13; i++) {	
-			switch(i) {
-			case 0:
-				displayValue = "A"; calcValue = 1;
-				break;
-			case 10:
-				displayValue = "J"; calcValue = 10;
-				break;
-			case 11: 
-				displayValue = "Q"; 	calcValue = 10;
-				break;
-			case 12:
-				displayValue = "K"; calcValue = 10;
-				break;
-			default :
-				displayValue = Integer.toString(i + 1);
-				calcValue = i + 1;
-				break;
-			}			
-			
-			cardList[i] = new Card(shape, displayValue, calcValue);
-		}		
+		String[] shapes = {"스페이드", "하트", "클럽", "다이아몬드"};
+		String[] displayValues = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+		int[] calcValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 		
-		shape = "다이아몬드";
-		for() {
-			
+		for(int z=0; z<shapes.length; z++) {
+			for(int i=0; i<displayValues.length; i++) {
+				cardList[????] = new Card(?????);
+			}
 		}
-	
-		
-		
-		
 	}
 	
 	public void printCards() {
