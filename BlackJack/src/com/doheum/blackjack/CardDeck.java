@@ -1,8 +1,7 @@
 package com.doheum.blackjack;
 
 public class CardDeck {
-	private Card[] cardList = new Card[52];
-	
+	private Card[] cardList = new Card[52];	
 	
 	public CardDeck() {
 		String[] shapes = {"스페이드", "하트", "클럽", "다이아몬드"};
@@ -11,7 +10,7 @@ public class CardDeck {
 		
 		for(int z=0; z<shapes.length; z++) {
 			for(int i=0; i<displayValues.length; i++) {
-				cardList[????] = new Card(?????);
+				cardList[z*13 + i] = new Card(shapes[z], displayValues[i], calcValues[i]);
 			}
 		}
 	}
