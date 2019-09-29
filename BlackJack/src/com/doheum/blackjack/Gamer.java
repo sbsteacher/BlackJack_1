@@ -7,6 +7,10 @@ public class Gamer {
 		cardList = new Card[49];
 	}
 	
+	public Gamer(int size) {
+		cardList = new Card[size];
+	}
+	
 	public void receiveCard(Card card) {
 		for(int i=0; i<cardList.length; i++) {
 			if(cardList[i] == null) {

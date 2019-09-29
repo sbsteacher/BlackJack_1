@@ -17,6 +17,8 @@ public class Main {
 		gamer.receiveCard(cd.pick());
 		gamer.receiveCard(cd.pick());		
 		gamer.open();		
+	
+		Dealer dealer = new Dealer();
 		
 	
 	}
