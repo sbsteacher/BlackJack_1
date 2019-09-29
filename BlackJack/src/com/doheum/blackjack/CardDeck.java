@@ -4,13 +4,36 @@ public class CardDeck {
 	private Card[] cardList = new Card[52];	
 	
 	public CardDeck() {
-		String[] shapes = {"스페이드", "하트", "클럽", "다이아몬드"};
-		String[] displayValues = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-		int[] calcValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
+		String[] shapes = {"스페이드", "하트", "클럽", "다이아몬드"};		
+		final int CARD_COUNT = 13;
 		
+		String displayValue = null;
+		int calcValue = 0;
 		for(int z=0; z<shapes.length; z++) {
-			for(int i=0; i<displayValues.length; i++) {
-				cardList[z*13 + i] = new Card(shapes[z], displayValues[i], calcValues[i]);
+			for(int i=0; i<CARD_COUNT; i++) {	
+				switch(i) {
+				case 0:
+					displayValue = "A";
+					break;
+				case 10:
+					displayValue = "J";
+					break;
+				case 11:
+					displayValue = "Q";
+					break;
+				case 12:
+					displayValue = "K";
+					break;			
+				}
+				
+				if(i >= 10) {
+					calcValue = 10;
+				} else {
+					calcValue = i + 1;
+					displayValue = Integer.toString(calcValue);
+				}				
+				
+				cardList[z * CARD_COUNT + i] = new Card(shapes[z], displayValue, calcValue);
 			}
 		}
 	}
