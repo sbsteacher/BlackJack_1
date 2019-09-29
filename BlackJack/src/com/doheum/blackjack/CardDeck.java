@@ -36,7 +36,32 @@ public class CardDeck {
 				cardList[z * CARD_COUNT + i] = new Card(shapes[z], displayValue, calcValue);
 			}
 		}
+		
+		mixCards();
 	}
+	
+	
+	private void mixCards() {
+		final int MAX = cardList.length;
+		for(int i=0; i<MAX; i++) {
+			int rIdx = (int)(Math.random() * MAX); //0~51
+			Card temp = cardList[rIdx];
+			cardList[rIdx] = cardList[i];
+			cardList[i] = temp;
+		}
+	}
+	
+	public Card pick() {
+		for(int i=0; i<cardList.length; i++) {
+			if(cardList[i] != null) {
+				Card temp = cardList[i];
+				cardList[i] = null;
+				return temp;				
+			}
+		}
+		return null;
+	}
+	
 	
 	public void printCards() {
 		for(Card c : cardList) {
