@@ -1,7 +1,7 @@
 package com.doheum.blackjack;
 
 public class Gamer {
-	private final Card[] cardList;
+	protected final Card[] cardList;
 	
 	public Gamer() {
 		cardList = new Card[49];
