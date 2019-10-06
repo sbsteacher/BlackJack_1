@@ -2,7 +2,7 @@ package com.doheum.blackjack;
 
 public class Dealer extends Gamer {
 	public Dealer() {
-		super(3);
+		super("딜러", 3);
 	}
 		
 	public void moreCard(CardDeck cd) {

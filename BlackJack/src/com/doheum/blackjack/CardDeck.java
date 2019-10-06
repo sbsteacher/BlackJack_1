@@ -2,15 +2,14 @@ package com.doheum.blackjack;
 
 public class CardDeck {
 	private Card[] cardList = new Card[52];	
+	private String[] shapes = {"스페이드", "하트", "클럽", "다이아몬드"};		
+	private final int CARD_COUNT = 13;
 	
-	public CardDeck() {
-		String[] shapes = {"스페이드", "하트", "클럽", "다이아몬드"};		
-		final int CARD_COUNT = 13;
-		
+	public CardDeck() {	
 		String displayValue = null;
-		int calcValue = 0;
+		int calcValue = 0;		
 		for(int z=0; z<shapes.length; z++) {
-			for(int i=0; i<CARD_COUNT; i++) {	
+			for(int i=0; i<CARD_COUNT; i++) {
 				switch(i) {
 				case 0:
 					displayValue = "A";

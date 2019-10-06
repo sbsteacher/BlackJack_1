@@ -1,33 +1,45 @@
 package com.doheum.blackjack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rule {
 	private final int STAND_SCORE = 21;
 	
-	public void whoIsWin(Gamer gamer, Dealer dealer) {		
-		//게이머의 카드 점수
-		int gamerSum = gamer.open();		
-		//딜러의 카드 점수
-		int dealerSum = dealer.open();				
-		//비교(21점에 가까운 사람이 승리, 21초과면 무조건 진다)
-		//게이머가 이김, 딜러가 이김, 둘 비김		
-		if(gamerSum > STAND_SCORE && dealerSum > STAND_SCORE || gamerSum == dealerSum) {
-			System.out.println("비김!!!");
-			
-		} else if(gamerSum <= STAND_SCORE && dealerSum <= STAND_SCORE) {
-			
-			if(gamerSum > dealerSum) {
-				System.out.println("게이머 승리!");
-			} else {
-				System.out.println("딜러 승리!");
+	public void whoIsWin(List<Gamer> gamers) {		
+		List<Gamer> targets = new ArrayList();
+		List<Gamer> winners = new ArrayList();
+		
+		System.out.println(" <<<<<<<<<<<<<  결과 >>>>>>>");
+		for(int i=0; i<gamers.size(); i++) {
+			Gamer g = gamers.get(i);
+			g.open();
+					
+			if(g.getScore() < STAND_SCORE) {
+				targets.add(g);
 			}
-			
-		} else {
-			
-			if(gamerSum > STAND_SCORE) {
-				System.out.println("딜러 승리!");
-			} else {
-				System.out.println("게이머 승리!");
+		}
+		
+		int maxScore = 0;
+		for(Gamer g : targets) {
+			if(maxScore < g.getScore()) {
+				maxScore = g.getScore();
 			}
+		}
+		
+		for(Gamer g : targets) {
+			if(maxScore == g.getScore()) {
+				winners.add(g);				
+			}			
+		}
+		
+		String result = "승리";
+		if(winners.size() > 1) {
+			result = "비김";
+		}
+		
+		for(Gamer g : winners) {
+			System.out.printf("%s %s\n", g.NAME, result);
 		}
 		
 	}
